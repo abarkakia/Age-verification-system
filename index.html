@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification System</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/face-api.min.js"></script>
+    <script defer src="./js/main.js"></script>
+</head>
+<body>
+    <div class="verification-container">
+        <div class="header">
+            <h1>Age Verification</h1>
+            <p>Please follow the instructions to verify your age</p>
+        </div>
+        
+        <div class="verification-flow">
+            <div class="step" id="step1">
+                <h2>Step 1: Camera Access</h2>
+                <p>Please allow camera access to begin verification</p>
+                <button id="start-btn" class="btn">Start Verification</button>
+            </div>
+            
+            <div class="step" id="step2" style="display: none;">
+                <h2>Step 2: Face Detection</h2>
+                <p>Please position your face in the frame</p>
+                <div class="video-container">
+                    <video id="video" width="600" height="450" autoplay muted></video>
+                    <canvas id="canvas" width="600" height="450"></canvas>
+                </div>
+                <div id="face-status" class="status-message"></div>
+            </div>
+            
+            <div class="step" id="step3" style="display: none;">
+                <h2>Step 3: Liveness Check</h2>
+                <p>Please move slightly closer to the camera</p>
+                <div class="video-container">
+                    <video id="video-liveness" width="600" height="450" autoplay muted></video>
+                    <canvas id="canvas-liveness" width="600" height="450"></canvas>
+                </div>
+                <div id="liveness-status" class="status-message"></div>
+                <div class="progress-container">
+                    <div id="liveness-progress" class="progress-bar"></div>
+                </div>
+            </div>
+            
+            <div class="step" id="step4" style="display: none;">
+                <h2>Verification Complete</h2>
+                <div id="verification-result"></div>
+                <div id="purchase-options" class="purchase-options"></div>
+                <button id="restart-btn" class="btn">Restart Verification</button>
+            </div>
+        </div>
+        
+        <div class="privacy-notice">
+            <p>We do not store your facial data. All processing happens locally in your browser.</p>
+        </div>
+    </div>
+</body>
+</html>
